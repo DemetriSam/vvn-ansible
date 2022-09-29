@@ -1,0 +1,14 @@
+- hosts: web-dev
+  gather_facts: no
+  tasks:
+    - name: deploy
+      command: chdir=/var/www/beautybox/docker make update
+      tags: dev_deploy
+
+- hosts: web-prod
+  gather_facts: no
+  tasks:
+
+    - name: deploy
+      command: chdir=/var/www/beautybox/docker make update-prod
+      tags: prod
